@@ -1,0 +1,15 @@
+[providers]
+node = "20"
+
+[variables]
+NODE_ENV = "production"
+
+[phases.build]
+dependsOn = ["install"]
+cmds = ["npm run build"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[start]
+cmd = "npm start"
