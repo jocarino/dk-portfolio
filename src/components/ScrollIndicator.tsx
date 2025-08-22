@@ -27,14 +27,17 @@ export function ScrollIndicator() {
   return (
     <button
       onClick={scrollToProjects}
-      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce hover:scale-110 transition-all duration-200 cursor-pointer group"
+      className="fixed bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce hover:scale-110 transition-all duration-200 cursor-pointer group"
       aria-label="Scroll to projects section"
     >
       <div className="flex flex-col items-center gap-1">
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center group-hover:border-primary transition-colors">
+        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center group-hover:border-primary transition-colors bg-background/80 backdrop-blur-sm">
           <div className="w-1 h-3 bg-muted-foreground rounded-full mt-2 animate-pulse group-hover:bg-primary transition-colors"></div>
         </div>
         <ArrowDown className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors hidden sm:block">
+          Scroll
+        </span>
       </div>
     </button>
   );

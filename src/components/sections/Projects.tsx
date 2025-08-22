@@ -191,7 +191,7 @@ export function Projects() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Let's Talk
+              Let&apos;s Talk
             </Button>
           </div>
         </Motion>

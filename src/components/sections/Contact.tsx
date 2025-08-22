@@ -41,11 +41,11 @@ export function Contact() {
         <Motion>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it and see how we
-              can bring your vision to life.
+              Have a project in mind? I&apos;d love to hear about it and see how
+              we can bring your vision to life.
             </p>
           </div>
         </Motion>
@@ -158,7 +158,7 @@ export function Contact() {
                   Get in touch
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  I'm always open to discussing new opportunities, creative
+                  I&apos;m always open to discussing new opportunities, creative
                   projects, or just having a friendly chat about design and
                   technology.
                 </p>
