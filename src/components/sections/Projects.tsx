@@ -4,9 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Motion, Stagger } from "@/components/ui/motion";
-import { GlassModal } from "@/components/ui/glass-modal";
 import { portfolioConfig, PortfolioConfig } from "@/config/portfolio";
 import { useState } from "react";
+import { SimpleModal } from "../ui/simple-modal";
 
 type Project = PortfolioConfig["projects"][0];
 
@@ -250,15 +250,10 @@ export function Projects() {
         </Motion>
       </div>
 
-      {/* Project Modal */}
-      <GlassModal
+      <SimpleModal
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={closeModal}
-        // Glass surface customization with pink hint
-        blur={20}
-        opacity={0.85}
-        saturation={1.5}
       />
     </section>
   );
