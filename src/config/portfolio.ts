@@ -26,7 +26,7 @@ export interface PortfolioConfig {
     id: string;
     title: string;
     description: string;
-    category: string;
+    categories: string[];
     image: string;
     tags: string[];
     featured: boolean;
@@ -46,19 +46,17 @@ export interface PortfolioConfig {
 export const portfolioConfig: PortfolioConfig = {
   personal: {
     name: "Damola Kevwe",
-    title: "Creative Designer",
-    subtitle: "Crafting Digital Experiences",
+    title: "Visual Designer",
+    subtitle:
+      "I design & create engaging journeys that build meaningful experiences",
     description:
-      "I'm a passionate designer with 5+ years of experience creating beautiful, functional digital experiences. I specialize in UI/UX design, branding, and creative direction.",
+      "I’m a passionate designer with 5+ years of experience across digital and visual design, with a drive for blending creativity and function to bring ideas to life.",
     location: "London, UK",
-    email: "damolaleye99.com",
+    email: "damolakevwe.com",
     website: "www.damolakevwe.com",
   },
   social: {
     linkedin: "https://linkedin.com/in/damola-kevwe-29b10279",
-    // behance: "https://behance.net/alexdesigner",
-    // dribbble: "https://dribbble.com/alexdesigner",
-    instagram: "https://instagram.com/damolaleye",
   },
   skills: [
     {
@@ -91,94 +89,97 @@ export const portfolioConfig: PortfolioConfig = {
   ],
   projects: [
     {
-      id: "ecommerce-app",
-      title: "E-Commerce Mobile App",
+      id: "soak-sleep-brand-system",
+      title: "Soak & Sleep Design System & Campaigns",
       description:
-        "Complete redesign of a fashion e-commerce mobile app with focus on user experience and conversion optimization.",
-      category: "Mobile Design",
-      image: "/projects/ecommerce-app.jpg",
-      tags: ["UI/UX", "Mobile", "E-commerce", "Figma"],
+        "Lead designer creating cohesive digital and print marketing visuals across seasonal product launches. Developed and managed design systems to maintain brand consistency across all customer touchpoints.",
+      categories: ["Brand & Marketing Design", "Design Systems"],
+      image: "/projects/soak-sleep-brand.jpg",
+      tags: [
+        "Design Systems",
+        "Brand Identity",
+        "Print Design",
+        "Digital Marketing",
+      ],
       featured: true,
-      link: "https://dribbble.com/shots/ecommerce-app",
+      // link: "#",
     },
     {
-      id: "saas-dashboard",
-      title: "SaaS Analytics Dashboard",
+      id: "google-ux-certification",
+      title: "Google UX Design Certification Projects",
       description:
-        "Modern dashboard design for a data analytics platform with complex data visualization and intuitive navigation.",
-      category: "Web Design",
-      image: "/projects/saas-dashboard.jpg",
-      tags: ["Dashboard", "Data Viz", "SaaS", "Web"],
+        "Completed hands-on UX projects including user research, wireframing, prototyping, and usability testing. Designed responsive, user-centered digital experiences from concept to high-fidelity prototype.",
+      categories: ["UX Design", "User Research"],
+      image: "/projects/google-ux-projects.jpg",
+      tags: ["UX Research", "Wireframing", "Prototyping", "Usability Testing"],
       featured: true,
-      link: "https://dribbble.com/shots/saas-dashboard",
+      // link: "#",
     },
     {
-      id: "brand-identity",
-      title: "Tech Startup Branding",
+      id: "bupa-service-optimization",
+      title: "Bupa Service Experience Enhancement",
       description:
-        "Complete brand identity design for an AI startup including logo, brand guidelines, and marketing materials.",
-      category: "Branding",
-      image: "/projects/brand-identity.jpg",
-      tags: ["Branding", "Logo", "Identity", "Startup"],
+        "Improved customer service processes through systematic feedback analysis and clear communication strategies. Enhanced service satisfaction while ensuring compliance standards across member interactions.",
+      categories: ["Service Design", "Process Improvement", "Brand Design"],
+      image: "/projects/bupa-service.jpg",
+      tags: [
+        "Process Improvement",
+        "Customer Experience",
+        "Service Design",
+        "Communication",
+      ],
+      featured: false,
+      // link: "#",
+    },
+    {
+      id: "freelance-brand-identity",
+      title: "Small Business Brand & Visual Identity",
+      description:
+        "Designed comprehensive branding assets, marketing materials, and social content for clients including Of a Kind Creatives, Latoja Mart, and Buganow. Focused on visual storytelling and consistent brand identity.",
+      categories: ["Brand Design", "Visual Identity", "Marketing Design"],
+      image: "/projects/freelance-branding.jpg",
+      tags: [
+        "Brand Identity",
+        "Social Media",
+        "Marketing Design",
+        "Visual Storytelling",
+      ],
       featured: true,
-      link: "https://behance.net/gallery/brand-identity",
-    },
-    {
-      id: "wellness-app",
-      title: "Wellness & Meditation App",
-      description:
-        "Calming and intuitive design for a meditation and wellness app focused on mindfulness and user wellbeing.",
-      category: "Mobile Design",
-      image: "/projects/wellness-app.jpg",
-      tags: ["Mobile", "Wellness", "UI/UX", "Meditation"],
-      featured: false,
-      link: "https://dribbble.com/shots/wellness-app",
-    },
-    {
-      id: "portfolio-website",
-      title: "Photographer Portfolio",
-      description:
-        "Clean and elegant portfolio website for a professional photographer showcasing their work in various categories.",
-      category: "Web Design",
-      image: "/projects/portfolio-website.jpg",
-      tags: ["Portfolio", "Photography", "Web", "Minimal"],
-      featured: false,
-      link: "https://example.com/photographer-portfolio",
-    },
-    {
-      id: "restaurant-branding",
-      title: "Restaurant Brand Identity",
-      description:
-        "Modern and appetizing brand identity for a farm-to-table restaurant including menus, signage, and digital assets.",
-      category: "Branding",
-      image: "/projects/restaurant-branding.jpg",
-      tags: ["Branding", "Restaurant", "Print", "Digital"],
-      featured: false,
-      link: "https://behance.net/gallery/restaurant-branding",
+      // link: "#",
     },
   ],
   experience: [
     {
-      company: "Design Studio Co.",
-      position: "Senior UI/UX Designer",
-      period: "2022 - Present",
+      company: "Soak & Sleep",
+      position: "Graphic Designer",
+      period: "2024 - Present",
       description:
-        "Lead designer for multiple client projects, specializing in SaaS platforms and mobile applications. Managed design systems and mentored junior designers.",
+        "Lead designer for digital and print marketing. Design marketing visuals, manage design systems, and support brand consistency across campaigns and seasonal product launches.",
       current: true,
     },
     {
-      company: "Tech Startup Inc.",
-      position: "Product Designer",
-      period: "2020 - 2022",
+      company: "Grow with Google",
+      position: "Google UX Design Professional Certification",
+      period: "2024",
       description:
-        "Designed user interfaces for B2B software products. Collaborated closely with developers and product managers to create user-centered designs.",
+        "Completed hands-on UX training in user research, wireframing, prototyping, and usability testing to design responsive, user-centered digital experiences.",
+      current: false,
     },
     {
-      company: "Creative Agency",
-      position: "Visual Designer",
-      period: "2019 - 2020",
+      company: "Bupa",
+      position: "Member Service Advisor",
+      period: "2023 - 2024",
       description:
-        "Created visual designs for various brands including logos, marketing materials, and digital campaigns.",
+        "Delivered customer support, improved processes through feedback, ensured compliance, and maintained clear communication to enhance service experience and satisfaction.",
+      current: false,
+    },
+    {
+      company: "Freelance & Contract Projects",
+      position: "Graphic & Visual Designer",
+      period: "2019 - 2021",
+      description:
+        "Designed branding assets, marketing materials, and social content for small businesses including Of a Kind Creatives, Latoja Mart, and Buganow. Focused on visual identity, layout design, and creative storytelling.",
+      current: false,
     },
   ],
 };

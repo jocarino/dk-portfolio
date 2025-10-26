@@ -4,12 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Motion, Stagger } from "@/components/ui/motion";
 import { portfolioConfig } from "@/config/portfolio";
+import { cn } from "@/lib/utils";
 
 export function Skills() {
   const { skills, experience } = portfolioConfig;
 
   return (
-    <section className="py-20 px-4 bg-muted/50">
+    <section id="skills" className="py-20 px-4 bg-muted/50">
       <div className="container mx-auto max-w-6xl">
         {/* Skills Section */}
         <Motion>
@@ -39,7 +40,7 @@ export function Skills() {
                       {skillCategory.items.map((skill) => (
                         <Badge
                           key={skill}
-                          variant="secondary"
+                          variant="default"
                           className="text-xs hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
                         >
                           {skill}
@@ -90,7 +91,12 @@ export function Skills() {
 
                       {/* Content */}
                       <div className="ml-20 w-full">
-                        <Card className="border-0 shadow-md hover:shadow-lg transition-all duration-300">
+                        <Card
+                          className={cn(
+                            "border-0 shadow-md hover:shadow-lg transition-all duration-300",
+                            exp.current ? "bg-accent/10" : ""
+                          )}
+                        >
                           <CardContent className="p-6">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                               <div>
@@ -102,18 +108,7 @@ export function Skills() {
                                 </p>
                               </div>
                               <div className="flex items-center gap-2 mt-2 md:mt-0">
-                                <Badge
-                                  variant={
-                                    exp.current ? "default" : "secondary"
-                                  }
-                                >
-                                  {exp.period}
-                                </Badge>
-                                {exp.current && (
-                                  <Badge className="bg-accent hover:bg-accent/90">
-                                    Current
-                                  </Badge>
-                                )}
+                                <Badge variant="default">{exp.period}</Badge>
                               </div>
                             </div>
                             <p className="text-muted-foreground leading-relaxed">

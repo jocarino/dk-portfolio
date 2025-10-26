@@ -13,8 +13,9 @@ export function Navigation() {
   const navItems = [
     { label: "Home", href: "#" },
     { label: "Projects", href: "#projects" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Experience", href: "#skills" },
+    // { label: "About", href: "#about" },
+    // { label: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export function Navigation() {
                 className="bg-primary hover:bg-primary/90"
                 onClick={() => scrollToSection("#contact")}
               >
-                Hire Me
+                Get In Touch
               </Button>
             </div>
 
@@ -114,7 +115,7 @@ export function Navigation() {
                 className="w-full bg-primary hover:bg-primary/90"
                 onClick={() => scrollToSection("#contact")}
               >
-                Hire Me
+                Get In Touch
               </Button>
             </div>
           </div>
