@@ -3,9 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { portfolioConfig } from "@/config/portfolio";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 
-export function Navigation() {
+interface NavigationProps {
+  customLogo?: ReactNode;
+}
+
+export function Navigation(
+  { customLogo }: NavigationProps = {} as NavigationProps
+) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { personal } = portfolioConfig;
@@ -47,16 +53,20 @@ export function Navigation() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div
-              className="font-bold text-xl cursor-pointer text-foreground hover:text-primary transition-colors"
-              onClick={() => scrollToSection("#")}
-            >
-              {personal.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </div>
+            {/* Logo or Custom Element */}
+            {customLogo ? (
+              <div className="-ml-6 sm:-ml-8">{customLogo}</div>
+            ) : (
+              <div
+                className="font-bold text-xl cursor-pointer text-foreground hover:text-primary transition-colors"
+                onClick={() => scrollToSection("#")}
+              >
+                {personal.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}
+              </div>
+            )}
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">

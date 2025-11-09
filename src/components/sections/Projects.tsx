@@ -7,6 +7,8 @@ import { Motion, Stagger } from "@/components/ui/motion";
 import { portfolioConfig, PortfolioConfig } from "@/config/portfolio";
 import { useState } from "react";
 import { SimpleModal } from "../ui/simple-modal";
+import { useRouter } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 type Project = PortfolioConfig["projects"][0];
 
@@ -15,6 +17,7 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { projects } = portfolioConfig;
+  const router = useRouter();
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
@@ -82,7 +85,7 @@ export function Projects() {
             {featuredProjects.map((project, index) => (
               <Motion key={project.id} delay={index * 100}>
                 <Card
-                  className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+                  className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 pb-0 transform hover:-translate-y-2 cursor-pointer"
                   onClick={() => openModal(project)}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -98,11 +101,11 @@ export function Projects() {
 
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex gap-3">
+                      <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                           size="sm"
                           variant="outline"
-                          className="bg-background/10 border-background/20 text-background hover:bg-background/20"
+                          className="cursor-pointer bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/40 backdrop-blur-sm"
                           onClick={(e) => {
                             e.stopPropagation();
                             openModal(project);
@@ -110,6 +113,17 @@ export function Projects() {
                         >
                           <span className="mr-2">👁️</span>
                           View Details
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="cursor-pointer bg-primary/90 hover:bg-primary text-background border-0"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/projects/${project.id}`);
+                          }}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Full Project
                         </Button>
                       </div>
                     </div>
@@ -135,7 +149,7 @@ export function Projects() {
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       {project.tags.slice(0, 3).map((tag) => (
                         <Badge
                           key={tag}
@@ -154,6 +168,19 @@ export function Projects() {
                         </Badge>
                       )}
                     </div>
+                    {/* View Full Project Link */}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full mt-2 text-primary hover:text-primary/80 hover:bg-primary/10"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        router.push(`/projects/${project.id}`);
+                      }}
+                    >
+                      View Full Project
+                      <ExternalLink className="w-4 h-4 ml-2" />
+                    </Button>
                   </CardContent>
                 </Card>
               </Motion>

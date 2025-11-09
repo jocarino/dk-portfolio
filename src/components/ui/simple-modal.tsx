@@ -6,9 +6,11 @@ import {
   Github,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 interface Project {
   id: string;
@@ -37,6 +39,7 @@ export function SimpleModal({
   onClose,
   onNavigate,
 }: SimpleModalProps) {
+  const router = useRouter();
   // Find current project index
   const currentIndex = project
     ? allProjects.findIndex((p) => p.id === project.id)
@@ -136,7 +139,7 @@ export function SimpleModal({
             )}
 
             <div
-              className="relative w-full max-w-4xl h-[85vh] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+              className="relative w-full max-w-4xl h-[85vh] bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl overflow-hidden flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Glass effect overlay */}
@@ -167,7 +170,7 @@ export function SimpleModal({
                   {/* Project counter and navigation controls - compact header version */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     {/* Compact navigation buttons - visible on mobile, hidden on desktop (where side buttons show) */}
-                    <div className="flex md:hidden items-center gap-1">
+                    <div className="flex md:hidden items-center gap-1 pr-10 ">
                       {hasPrevious && (
                         <button
                           onClick={handlePrevious}
@@ -248,6 +251,19 @@ export function SimpleModal({
 
                     {/* Action buttons */}
                     <div className="flex flex-col sm:flex-row gap-3">
+                      {project.featured && (
+                        <button
+                          className="flex-1 px-6 py-3 rounded-xl text-white font-medium transition-all duration-200 flex items-center justify-center bg-pink-500/30 hover:bg-pink-500/40 border border-pink-500/40 backdrop-blur-sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onClose();
+                            router.push(`/projects/${project.id}`);
+                          }}
+                        >
+                          <ArrowRight className="w-4 h-4 mr-2" />
+                          View Full Project
+                        </button>
+                      )}
                       {project.link && (
                         <button
                           className="flex-1 px-6 py-3 rounded-xl text-white font-medium transition-all duration-200 flex items-center justify-center bg-pink-500/20 hover:bg-pink-500/30 border border-pink-500/30 backdrop-blur-sm"
