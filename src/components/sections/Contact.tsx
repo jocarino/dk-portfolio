@@ -238,7 +238,12 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">Email</p>
-                      <p className="text-muted-foreground">{personal.email}</p>
+                      <a
+                        href={`mailto:${personal.email}`}
+                        className="text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
+                      >
+                        {personal.email}
+                      </a>
                     </div>
                   </CardContent>
                 </Card>

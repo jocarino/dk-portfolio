@@ -89,7 +89,12 @@ export function Hero() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
-                  <span className="break-all">{personal.email}</span>
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="break-all hover:text-primary transition-colors underline-offset-4 hover:underline"
+                  >
+                    {personal.email}
+                  </a>
                 </div>
               </div>
             </Motion>
