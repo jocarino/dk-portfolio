@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Motion } from "@/components/ui/motion";
 import { portfolioConfig } from "@/config/portfolio";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
@@ -16,13 +16,50 @@ export function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you for your message! I'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus({ type: null, message: "" });
+      }, 5000);
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -137,13 +174,41 @@ export function Contact() {
                     />
                   </div>
 
+                  {/* Status Message */}
+                  {submitStatus.type && (
+                    <div
+                      className={`p-4 rounded-lg flex items-start gap-3 ${
+                        submitStatus.type === "success"
+                          ? "bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400"
+                          : "bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400"
+                      }`}
+                    >
+                      {submitStatus.type === "success" ? (
+                        <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      ) : (
+                        <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                      )}
+                      <p className="text-sm font-medium">{submitStatus.message}</p>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all duration-200"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    Send Message
-                    <Send className="w-4 h-4 ml-2" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="w-4 h-4 ml-2" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>

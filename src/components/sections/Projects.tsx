@@ -26,6 +26,15 @@ export function Projects() {
     setSelectedProject(null);
   };
 
+  const handleNavigate = (project: Project) => {
+    setSelectedProject(project);
+    // Scroll to top of modal content when navigating
+    const modalContent = document.querySelector("[data-modal-content]");
+    if (modalContent) {
+      modalContent.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const toggleCategory = (category: string) => {
     if (category === "all") {
       setSelectedCategories([]);
@@ -252,8 +261,10 @@ export function Projects() {
 
       <SimpleModal
         project={selectedProject}
+        allProjects={projects}
         isOpen={isModalOpen}
         onClose={closeModal}
+        onNavigate={handleNavigate}
       />
     </section>
   );
