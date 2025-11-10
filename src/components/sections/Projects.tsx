@@ -130,7 +130,7 @@ export function Projects() {
                   </div>
 
                   <CardContent className="p-6 pt-2 space-y-2">
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-2">
                       {project.categories.map((category) => (
                         <Badge
                           key={category}
@@ -169,7 +169,7 @@ export function Projects() {
                       )}
                     </div>
                     {/* View Full Project Link */}
-                    <Button
+                    {/* <Button
                       variant="ghost"
                       size="sm"
                       className="w-full mt-2 text-primary hover:text-primary/80 hover:bg-primary/10"
@@ -180,7 +180,7 @@ export function Projects() {
                     >
                       View Full Project
                       <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
+                    </Button> */}
                   </CardContent>
                 </Card>
               </Motion>
