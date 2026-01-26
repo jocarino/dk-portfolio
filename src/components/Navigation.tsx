@@ -58,7 +58,7 @@ export function Navigation(
               <div className="-ml-6 sm:-ml-8">{customLogo}</div>
             ) : (
               <div
-                className="font-bold text-xl cursor-pointer text-foreground hover:text-primary transition-colors"
+                className="font-bold text-xl cursor-pointer text-primary sm:text-foreground hover:text-primary transition-colors"
                 onClick={() => scrollToSection("#")}
               >
                 {personal.name
