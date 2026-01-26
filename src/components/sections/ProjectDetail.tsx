@@ -24,9 +24,14 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         {/* Hero Section */}
         <Motion delay={100}>
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-foreground">
               {project.title}
             </h1>
+            {project.year && (
+              <p className="text-muted-foreground text-lg mb-6">
+                {project.year}
+              </p>
+            )}
           </div>
         </Motion>
 
@@ -137,7 +142,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <footer className="bg-card border-t border-border py-8 px-4 mt-16">
         <div className="container mx-auto max-w-6xl text-center">
           <p className="text-muted-foreground">
-            © 2025 Damola Kevwe. All rights reserved.
+            © {new Date().getFullYear()} Damola Kevwe. All rights reserved.
           </p>
         </div>
       </footer>

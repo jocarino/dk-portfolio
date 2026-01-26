@@ -33,6 +33,7 @@ export interface PortfolioConfig {
     featured: boolean;
     link?: string;
     github?: string;
+    year?: number | string;
   }[];
   experience: {
     company: string;
@@ -155,6 +156,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Storyboarding",
       ],
       featured: true,
+      year: 2022,
     },
     {
       id: "tache",
@@ -185,6 +187,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Storyboarding",
       ],
       featured: false,
+      year: 2019,
     },
     {
       id: "photography",
@@ -237,6 +240,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Storyboarding",
       ],
       featured: true,
+      year: 2023,
     },
     {
       id: "damolakevwe-portfolio",
@@ -247,7 +251,7 @@ export const portfolioConfig: PortfolioConfig = {
         "The visual identity - colours, typography, and interactions - is consistent with my broader design aesthetic: clean, balanced, and quietly expressive. After launch, I reviewed user analytics and feedback to make improvements to load speed, accessibility, and scroll flow. The result is a portfolio that feels alive - a reflection of how I approached design as an evolving conversation between storytelling, clarity, and emotion.",
       ],
       categories: ["Web Design"],
-      image: "/portfolio_images/damolakevwe-portfolio.jpg",
+      image: "/portfolio_images/damolakevwe-portfolio_tn.png",
       tags: [
         "Figma",
         "Photoshop",
@@ -267,6 +271,7 @@ export const portfolioConfig: PortfolioConfig = {
       ],
       featured: false,
       link: "https://damolakevwe.com",
+      year: 2024,
     },
     {
       id: "soak-and-sleep",
@@ -310,6 +315,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Storyboarding",
       ],
       featured: true,
+      year: "2024 - 2026",
     },
   ],
   experience: [

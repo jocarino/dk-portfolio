@@ -157,9 +157,18 @@ export function SimpleModal({
                 className="relative p-6 pb-0 flex-shrink-0 z-10"
               >
                 <div className="flex items-start justify-between gap-4 mb-2">
-                  <h2 className="text-3xl font-bold text-white flex-1 pr-4">
-                    {project.title}
-                  </h2>
+                  <div className="flex-1 pr-4">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+                      <h2 className="text-3xl font-bold text-white">
+                        {project.title}
+                      </h2>
+                      {project.year && (
+                        <p className="text-white/60 text-sm">
+                          {project.year}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                   {/* Project counter and navigation controls - compact header version */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     {/* Compact navigation buttons - visible on mobile, hidden on desktop (where side buttons show) */}
