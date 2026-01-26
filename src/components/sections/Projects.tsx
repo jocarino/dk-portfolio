@@ -9,6 +9,8 @@ import { useState } from "react";
 import { SimpleModal } from "../ui/simple-modal";
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { ProjectDescription } from "@/components/ui/project-description";
 
 type Project = PortfolioConfig["projects"][0];
 
@@ -90,14 +92,24 @@ export function Projects() {
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20"></div>
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-2 bg-background rounded-lg flex items-center justify-center">
-                          <span className="text-2xl">🎨</span>
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                        <div className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-2 bg-background rounded-lg flex items-center justify-center">
+                            <span className="text-2xl">🎨</span>
+                          </div>
+                          <p className="text-sm">Project Image</p>
                         </div>
-                        <p className="text-sm">Project Image</p>
                       </div>
-                    </div>
+                    )}
 
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -145,9 +157,12 @@ export function Projects() {
                       {project.title}
                     </h3>
 
-                    <p className="text-muted-foreground line-clamp-2 mt-2">
-                      {project.description}
-                    </p>
+                    <div className="text-muted-foreground line-clamp-2 mt-2">
+                      <ProjectDescription
+                        description={project.description}
+                        paragraphClassName="mb-0"
+                      />
+                    </div>
 
                     <div className="flex flex-wrap gap-2 mb-3">
                       {project.tags.slice(0, 3).map((tag) => (
@@ -230,28 +245,41 @@ export function Projects() {
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-br from-muted via-background to-muted"></div>
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                    <div className="text-center">
-                      <div className="w-12 h-12 mx-auto mb-2 bg-background rounded-lg flex items-center justify-center">
-                        <span className="text-lg">📱</span>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                      <div className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-2 bg-background rounded-lg flex items-center justify-center">
+                          <span className="text-lg">📱</span>
+                        </div>
+                        <p className="text-xs">{project.categories[0]}</p>
+                        {project.categories.length > 1 && (
+                          <p className="text-xs opacity-60">
+                            +{project.categories.length - 1} more
+                          </p>
+                        )}
                       </div>
-                      <p className="text-xs">{project.categories[0]}</p>
-                      {project.categories.length > 1 && (
-                        <p className="text-xs opacity-60">
-                          +{project.categories.length - 1} more
-                        </p>
-                      )}
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <CardContent className="p-4">
                   <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h4>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                    {project.description}
-                  </p>
+                  <div className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                    <ProjectDescription
+                      description={project.description}
+                      paragraphClassName="mb-0"
+                    />
+                  </div>
                   <div className="flex flex-wrap gap-1">
                     {project.tags.slice(0, 2).map((tag) => (
                       <Badge key={tag} variant="outline" className="text-xs">

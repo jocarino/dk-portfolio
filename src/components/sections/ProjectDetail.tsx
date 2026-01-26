@@ -6,6 +6,8 @@ import { Motion } from "@/components/ui/motion";
 import { PortfolioConfig } from "@/config/portfolio";
 import { ExternalLink, Github } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { ProjectImageGallery } from "@/components/ui/project-image-gallery";
+import { ProjectDescription } from "@/components/ui/project-description";
 
 type Project = PortfolioConfig["projects"][0];
 
@@ -28,21 +30,14 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
         </Motion>
 
-        {/* Project Image */}
+        {/* Project Image Gallery */}
         <Motion delay={200}>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted mb-12 shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-              <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-background rounded-2xl flex items-center justify-center shadow-lg">
-                  <span className="text-5xl">🎨</span>
-                </div>
-                <p className="text-lg font-medium">Project Image</p>
-                <p className="text-sm opacity-60 mt-1">
-                  {project.image || "Image placeholder"}
-                </p>
-              </div>
-            </div>
+          <div className="mb-12">
+            <ProjectImageGallery
+              project={project}
+              className="rounded-2xl overflow-hidden shadow-2xl"
+              showPlaceholder={true}
+            />
           </div>
         </Motion>
 
@@ -50,9 +45,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         <Motion delay={300}>
           <h2 className="text-2xl font-bold mb-6 text-foreground">Overview</h2>
           <div className="prose prose-lg max-w-none mb-12">
-            <p className="text-md md:text-lg text-muted-foreground leading-relaxed text-justify">
-              {project.description}
-            </p>
+            <ProjectDescription
+              description={project.description}
+              className="text-md md:text-lg text-muted-foreground leading-relaxed text-justify"
+              paragraphClassName="mb-4 last:mb-0"
+            />
           </div>
         </Motion>
 
@@ -115,11 +112,6 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 <Github className="w-5 h-5 mr-2" />
                 View Source Code
               </Button>
-            )}
-            {!project.link && !project.github && (
-              <div className="text-center text-muted-foreground py-4">
-                <p>No external links available for this project</p>
-              </div>
             )}
           </div>
         </Motion>

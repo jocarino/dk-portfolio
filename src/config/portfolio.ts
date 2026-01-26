@@ -25,9 +25,10 @@ export interface PortfolioConfig {
   projects: {
     id: string;
     title: string;
-    description: string;
+    description: string | string[];
     categories: string[];
-    image: string;
+    image?: string;
+    imageGallery?: string[];
     tags: string[];
     featured: boolean;
     link?: string;
@@ -128,10 +129,15 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "creative-adult",
       title: "Creative Adult",
-      description:
-        "Creative Adult was a podcast and platform I developed to celebrate the honest, sometimes chaotic journey of creativity. My goal was to design a visual identity that felt bold, youthful, and full of personality - something that could speak to artists, designers, and makers navigating the ups and downs of creative life. I created a full brand system - from the logo and colour palette to typography, podcast covers, and social media templates. I wanted every visual element to feel expressive but cohesive, so I worked iteratively in Figma and Illustrator, refining layouts and testing colour directions. I also designed motion graphics in After Effects for the podcast's video intros and social content. After it launched, the brand's consistent visual identity helped build a recognisable presence across Spotify and Instagram, increasing engagement by over 30%. The project reinforced my belief that design storytelling works best when it balances authenticity with structure.",
+      description: [
+        "Creative Adult was a podcast and platform I developed to celebrate the honest, sometimes chaotic journey of creativity. My goal was to design a visual identity that felt bold, youthful, and full of personality - something that could speak to artists, designers, and makers navigating the ups and downs of creative life.",
+        "I created a full brand system - from the logo and colour palette to typography, podcast covers, and social media templates. I wanted every visual element to feel expressive but cohesive, so I worked iteratively in Figma and Illustrator, refining layouts and testing colour directions.",
+        "I also designed motion graphics in After Effects for the podcast's video intros and social content. After it launched, the brand's consistent visual identity helped build a recognisable presence across Spotify and Instagram, increasing engagement by over 30%.",
+        "The project reinforced my belief that design storytelling works best when it balances authenticity with structure.",
+      ],
       categories: ["Graphic Design"],
-      image: "/images/creative-adult.jpg",
+      image: "/portfolio_images/creative-adult_tn.png",
+      imageGallery: ["/portfolio_images/creative-adult.png"],
       tags: [
         "Adobe Illustrator",
         "Figma",
@@ -153,10 +159,15 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "tache",
       title: "Tache",
-      description:
-        "Tache was a productivity app I designed to help users organise their day more intuitively. I wanted to create something that felt clean, minimal, and genuinely helpful - a tool that reduced mental clutter instead of adding to it. Using insights from existing research, I identified that users struggled with complex task apps that didn't align with their calendars. I started by mapping user flows and designing wireframes focused on simplicity. Through several testing rounds, I iterated on features like drag-and-drop scheduling, colour-coded categories, and adaptive reminders. The final prototype offered an effortless blend of structure and flexibility. During testing, users reported completing 20% more daily tasks and feeling more in control of their schedules. Tache taught me how to design for focus - how thoughtful design decisions can genuinely improve people's daily rhythm.",
+      description: [
+        "Tache was a productivity app I designed to help users organise their day more intuitively. I wanted to create something that felt clean, minimal, and genuinely helpful - a tool that reduced mental clutter instead of adding to it.",
+        "Using insights from existing research, I identified that users struggled with complex task apps that didn't align with their calendars. I started by mapping user flows and designing wireframes focused on simplicity. Through several testing rounds, I iterated on features like drag-and-drop scheduling, colour-coded categories, and adaptive reminders.",
+        "The final prototype offered an effortless blend of structure and flexibility. During testing, users reported completing 20% more daily tasks and feeling more in control of their schedules.",
+        "Tache taught me how to design for focus - how thoughtful design decisions can genuinely improve people's daily rhythm.",
+      ],
       categories: ["UI/UX"],
-      image: "/images/tache.jpg",
+      image: "/portfolio_images/tache_tn.png",
+      imageGallery: ["/portfolio_images/tache.png"],
       tags: [
         "Adobe XD",
         "Illustrator",
@@ -178,10 +189,14 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "photography",
       title: "Photography",
-      description:
-        "Photography has always been one of my most personal forms of storytelling. My work often explores emotion, place, and identity through a cinematic lens - using light, shadow, and colour to communicate feeling. I experimented with both portrait and environmental photography, capturing subtle details that reveal personality or atmosphere. In post-production, I used Lightroom and Photoshop to refine tone, depth, and balance, always aiming to preserve the authenticity of the moment. My photographs have been exhibited in Oxford and featured within my design projects, often shaping the visual language of campaigns and creative concepts. Photography keeps me grounded - it reminds me to see beyond design screens and stay inspired by real textures, people, and spaces.",
+      description: [
+        "Photography has always been one of my most personal forms of storytelling. My work often explores emotion, place, and identity through a cinematic lens - using light, shadow, and colour to communicate feeling.",
+        "I experimented with both portrait and environmental photography, capturing subtle details that reveal personality or atmosphere. In post-production, I used Lightroom and Photoshop to refine tone, depth, and balance, always aiming to preserve the authenticity of the moment.",
+        "My photographs have been exhibited in Oxford and featured within my design projects, often shaping the visual language of campaigns and creative concepts. Photography keeps me grounded - it reminds me to see beyond design screens and stay inspired by real textures, people, and spaces.",
+      ],
       categories: ["Storytelling"],
-      image: "/images/photography.jpg",
+      image: "/portfolio_images/photography_tn.png",
+      imageGallery: ["/portfolio_images/photography.png"],
       tags: [
         "Adobe Lightroom",
         "Photoshop",
@@ -198,10 +213,16 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "psychedelic-afrofuturism",
       title: "Psychedelic Afrofuturism",
-      description:
-        "Psychedelic Afrofuturism is one of my most experimental projects - a speculative reimagining of Manhattan through the lens of Afrofuturism and altered perception. The project merges architecture, digital art, and cultural symbolism to question how Black identity and technology can reshape our understanding of place and future. I created a series of digitally manipulated images and short video loops that transformed familiar cityscapes into vibrant, surreal landscapes filled with rhythm and movement. Using InDesign, I designed a fold-out map that guided viewers through this imagined world. The work culminated in a public exhibition at the Kendrew Quad Gallery in Oxford, where I curated large-format prints and projections to immerse viewers in the experience. The project received a distinction and sparked meaningful discussions about speculative design and cultural imagination.",
+      description: [
+        "Psychedelic Afrofuturism is one of my most experimental projects - a speculative reimagining of Manhattan through the lens of Afrofuturism and altered perception.",
+        "The project merges architecture, digital art, and cultural symbolism to question how Black identity and technology can reshape our understanding of place and future.",
+        "I created a series of digitally manipulated images and short video loops that transformed familiar cityscapes into vibrant, surreal landscapes filled with rhythm and movement. Using InDesign, I designed a fold-out map that guided viewers through this imagined world.",
+        "The work culminated in a public exhibition at the Kendrew Quad Gallery in Oxford, where I curated large-format prints and projections to immerse viewers in the experience. The project received a distinction and sparked meaningful discussions about speculative design and cultural imagination.",
+      ],
+
       categories: ["Storytelling", "Graphic Design"],
-      image: "/images/psychedelic-afrofuturism.jpg",
+      image: "/portfolio_images/psychedelic-afrofuturism_tn.png",
+      imageGallery: ["/portfolio_images/psychedelic-afrofuturism.png"],
       tags: [
         "Photoshop",
         "Premiere Pro",
@@ -220,10 +241,13 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "damolakevwe-portfolio",
       title: "DamolaKevwe.com",
-      description:
-        "I designed and built my personal portfolio site, DamolaKevwe.com, to showcase my multidisciplinary creative work in a way that felt both professional and personal. I wanted the site to tell a cohesive story - not just show finished projects, but also reflect how I think, create, and evolve as a designer. I started by mapping out the content structure and designing low-fidelity wireframes in Figma. I then developed high-fidelity prototypes, refining layout, navigation, and responsiveness before building the site. The visual identity - colours, typography, and interactions - is consistent with my broader design aesthetic: clean, balanced, and quietly expressive. After launch, I reviewed user analytics and feedback to make improvements to load speed, accessibility, and scroll flow. The result is a portfolio that feels alive - a reflection of how I approached design as an evolving conversation between storytelling, clarity, and emotion.",
+      description: [
+        "I designed and built my personal portfolio site, DamolaKevwe.com, to showcase my multidisciplinary creative work in a way that felt both professional and personal. I wanted the site to tell a cohesive story - not just show finished projects, but also reflect how I think, create, and evolve as a designer.",
+        "I started by mapping out the content structure and designing low-fidelity wireframes in Figma. I then developed high-fidelity prototypes, refining layout, navigation, and responsiveness before building the site.",
+        "The visual identity - colours, typography, and interactions - is consistent with my broader design aesthetic: clean, balanced, and quietly expressive. After launch, I reviewed user analytics and feedback to make improvements to load speed, accessibility, and scroll flow. The result is a portfolio that feels alive - a reflection of how I approached design as an evolving conversation between storytelling, clarity, and emotion.",
+      ],
       categories: ["Web Design"],
-      image: "/images/damolakevwe-portfolio.jpg",
+      image: "/portfolio_images/damolakevwe-portfolio.jpg",
       tags: [
         "Figma",
         "Photoshop",
@@ -247,10 +271,15 @@ export const portfolioConfig: PortfolioConfig = {
     {
       id: "soak-and-sleep",
       title: "Soak&Sleep",
-      description:
-        "As a Graphic Designer at Soak&Sleep, I work on visual content across digital and print platforms, helping the brand tell its story to both B2C and wholesale audiences. My responsibilities include designing seasonal campaigns, promotional banners, email marketing assets, and creating rich imagery for e-commerce and print materials. I contributed to the migration from Magento to Shopify, ensuring the new site retained brand consistency and cohesive visual design. I also built campaign pages on Shopify, using HTML and CSS to improve layouts, hierarchy, and visual engagement. Beyond web design, I created illustrations and icons, edited and retouched product photography, and curated visuals for cohesive campaign storytelling. To support the creative process, I occasionally used AI-generated imagery, helping explore concepts and visual directions. The AI process complements my design decisions - but never replaces the designer's role in shaping concept, style, or execution. During my time at Soak&Sleep, I've combined technical skill with creative direction, producing polished campaigns that strengthen brand presence, engagement, and visual impact across multiple channels.",
+      description: [
+        "As a Graphic Designer at Soak&Sleep, I work on visual content across digital and print platforms, helping the brand tell its story to both B2C and wholesale audiences.",
+        "My responsibilities include designing seasonal campaigns, promotional banners, email marketing assets, and creating rich imagery for e-commerce and print materials. I contributed to the migration from Magento to Shopify, ensuring the new site retained brand consistency and cohesive visual design.",
+        "I also built campaign pages on Shopify, using HTML and CSS to improve layouts, hierarchy, and visual engagement. Beyond web design, I created illustrations and icons, edited and retouched product photography, and curated visuals for cohesive campaign storytelling. To support the creative process, I occasionally used AI-generated imagery, helping explore concepts and visual directions. The AI process complements my design decisions - but never replaces the designer's role in shaping concept, style, or execution. During my time at Soak&Sleep, I've combined technical skill with creative direction, producing polished campaigns that strengthen brand presence, engagement, and visual impact across multiple channels.",
+        "During my time at Soak&Sleep, I've combined technical skill with creative direction, producing polished campaigns that strengthen brand presence, engagement, and visual impact across multiple channels.",
+      ],
       categories: ["Web Design", "Graphic Design"],
-      image: "/images/soak-and-sleep.jpg",
+      image: "/portfolio_images/soak-and-sleep_tn.png",
+      imageGallery: ["/portfolio_images/soak-and-sleep.png"],
       tags: [
         "Adobe Photoshop",
         "Illustrator",

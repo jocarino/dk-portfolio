@@ -11,18 +11,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { PortfolioConfig } from "@/config/portfolio";
+import { ProjectImageGallery } from "./project-image-gallery";
+import { ProjectDescription } from "./project-description";
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  categories: string[];
-  image: string;
-  tags: string[];
-  featured: boolean;
-  link?: string;
-  github?: string;
-}
+type Project = PortfolioConfig["projects"][0];
 
 interface SimpleModalProps {
   project: Project | null;
@@ -218,21 +211,19 @@ export function SimpleModal({
                         </span>
                       ))}
                     </div>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                      {project.description}
-                    </p>
+                    <ProjectDescription
+                      description={project.description}
+                      className="text-white/80 text-lg leading-relaxed"
+                      paragraphClassName="mb-4 last:mb-0"
+                    />
                   </div>
-                  {/* Project Image Placeholder */}
-                  <div className="flex-1 mb-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center min-h-[200px]">
-                    <div className="text-center text-white/70">
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-2xl flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20">
-                        <span className="text-4xl">🎨</span>
-                      </div>
-                      <p className="text-lg font-medium">Project Preview</p>
-                      <p className="text-sm opacity-60">
-                        Image would be displayed here
-                      </p>
-                    </div>
+                  {/* Project Image Gallery */}
+                  <div className="mb-6 -mx-6">
+                    <ProjectImageGallery
+                      project={project}
+                      showPlaceholder={true}
+                      placeholderVariant="modal"
+                    />
                   </div>
 
                   {/* Footer */}
