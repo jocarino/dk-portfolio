@@ -135,20 +135,20 @@ export function Hero() {
                 </span>
               </h1>
             </Motion>
-
+            {/* 
             {/* Subtitle */}
-            <Motion delay={200}>
+            {/* <Motion delay={200}>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto px-4">
                 {personal.subtitle}
               </p>
-            </Motion>
+            </Motion>  */}
 
             {/* Description */}
-            <Motion delay={300}>
+            {/* <Motion delay={300}>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 md:px-6">
                 {personal.description}
               </p>
-            </Motion>
+            </Motion> */}
 
             {/* Location and contact info */}
             <Motion delay={400}>
