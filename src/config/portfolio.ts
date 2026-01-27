@@ -270,7 +270,7 @@ export const portfolioConfig: PortfolioConfig = {
         "Storyboarding",
       ],
       featured: false,
-      link: "https://damolakevwe.com",
+      link: "https://old.damolakevwe.com",
       year: 2024,
     },
     {
